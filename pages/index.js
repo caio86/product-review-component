@@ -12,9 +12,9 @@ const StyledProductPreview = styled.div`
   display: flex;
   flex-direction: row;
   background-color: ${({ theme }) => theme.colors.white};
-  width: 45.92vw;
+  width: 42.92vw;
   height: ${(43.92*3)/4 + 'vw'};
-  border-radius: 1em;
+  border-radius: 0.5em;
   & > img {
     border-radius: inherit;
     border-top-right-radius: 0;
@@ -36,16 +36,31 @@ const StyledProductPreview = styled.div`
     color: ${({ theme }) => theme.colors.darkGrayishBlue};
   }
   .productPrice {
+    display: inline-flex;
+    align-items: center;
     color: ${({ theme }) => theme.colors.darkCyan};
     font-family: ${({ theme }) => theme.text.fontFamily[1]};
+    font-size: 2em;
     span {
+      padding: 1em;
       color: ${({ theme }) => theme.colors.darkGrayishBlue};
       font-family: ${({ theme }) => theme.text.fontFamily[0]};
+      text-decoration: line-through;
+      text-align: center;
+      font-size: 0.5em;
     }
   }
   .addToCart {
     color: ${({ theme }) => theme.colors.white};
     background-color: ${({ theme }) => theme.colors.darkCyan};
+    font-weight: ${({ theme }) => theme.text.fontWeight[1]};
+    padding: 1em;
+    border: 0;
+    border-radius: 0.5em;
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.veryDarkBlue};
+      cursor: pointer;
+    }
   }
 `
 function ProductPreview() {
@@ -60,8 +75,7 @@ function ProductPreview() {
           $149.99<span>$169.99</span>
         </div>
         <button className="addToCart">
-          <CartImage />
-          Add to Cart
+          <CartImage /> Add to Cart
         </button>
       </div>
     </StyledProductPreview>

@@ -13,6 +13,7 @@ export const CSSReset = createGlobalStyle`
     color: ${({ theme }) => theme.colors.veryDarkBlue};
     display: flex;
     font-weight: ${({ theme }) => theme.text.fontWeight[0]};
+    font-size: ${({ theme }) => theme.text.fontSize};
   }
   /* NextJS */
   html {
