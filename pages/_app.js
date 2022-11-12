@@ -1,5 +1,6 @@
 import { ThemeProvider } from 'styled-components'
 import { CSSReset } from '../src/components/CSSReset'
+import './_app.css'
 
 const theme = {
   colors: {

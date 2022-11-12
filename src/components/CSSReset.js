@@ -1,8 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const CSSReset = createGlobalStyle`
-  /* Import fonts */
-  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap');
   /* Reset */
   * {
     margin: 0;
@@ -10,9 +8,11 @@ export const CSSReset = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    font-family: 'Montserrat';
-    background-color: ${({ theme }) => theme.cream};
-    color: ${({ theme }) => theme.veryDarkBlue};
+    font-family: ${({ theme }) => theme.text.fontFamily[0]};
+    background-color: ${({ theme }) => theme.colors.cream};
+    color: ${({ theme }) => theme.colors.veryDarkBlue};
+    display: flex;
+    font-weight: ${({ theme }) => theme.text.fontWeight[0]};
   }
   /* NextJS */
   html {
@@ -27,5 +27,7 @@ export const CSSReset = createGlobalStyle`
   #__next {
     display: flex;
     flex: 1;
+    justify-content: center;
+    align-items: center;
   }
 `
