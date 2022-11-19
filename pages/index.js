@@ -11,15 +11,20 @@ export default function Home() {
 const StyledProductPreview = styled.div`
   display: flex;
   flex-direction: row;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: ${({ theme }) => theme.colors.white};
   width: 42.92vw;
   height: ${(43.92*3)/4 + 'vw'};
   border-radius: 0.5em;
-  & > img {
+  .imgDesktop {
     border-radius: inherit;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
+  .imgMobile { display: none }
   .wrapper {
     display: flex;
     flex-direction: column;
@@ -62,11 +67,27 @@ const StyledProductPreview = styled.div`
       cursor: pointer;
     }
   }
+  @media screen and (max-width: 1100px) {
+    flex-direction: column;
+    width: 60%;
+    height: auto;
+    max-width: 90%;
+    max-height: 90%;
+    .imgDesktop { display: none }
+    .imgMobile {
+      height: 12em;
+      border-radius: inherit;
+      display: block;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
 `
 function ProductPreview() {
   return (
     <StyledProductPreview>
-      <img src="/images/image-product-desktop.jpg" />
+      <img src="/images/image-product-desktop.jpg" className="imgDesktop"/>
+      <img src="/images/image-product-mobile.jpg" className="imgMobile"/>
       <div className="wrapper">
         <div className="productType">P E R F U M E</div>
         <h1 className="productName">Gabrielle Essence Eau De Parfum</h1>
